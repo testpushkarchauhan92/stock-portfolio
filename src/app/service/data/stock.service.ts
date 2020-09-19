@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Stock } from '../../model/Stock';
 import { Observable } from 'rxjs';
+import { API_URL } from '../../app.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,6 @@ export class StockService {
       'Access-Control-Allow-Headers': 'content-type',
       'Access-Control-Allow-Methods': 'PUT, POST, GET, DELETE, PATCH, OPTIONS'
     });
-    return this.http.get<Stock[]>(`https://hackathon-stock-api-v1.azurewebsites.net/stock`, { headers });
+    return this.http.get<Stock[]>(`${API_URL}/stock`, { headers });
   }
 }
