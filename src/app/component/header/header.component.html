@@ -1,0 +1,86 @@
+<header>
+    <div class="bs-example">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a href="https://www.blackrock.com/aladdin" class="navbar-brand" target="_blank">Stock Portfolio</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <!-- <div class="navbar-nav">
+                    <a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/welcome/pushkar" class="nav-item nav-link active">Home</a>
+                    <a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/about" class="nav-item nav-link">About</a>
+                    <a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/contact" class="nav-item nav-link">Contact</a>
+                </div>
+                <form class="form-inline ml-auto">
+                    <input *ngIf="authenticationService.isUserLoggedIn()" type="text" class="form-control mr-sm-2" placeholder="Search">
+                    <button *ngIf="authenticationService.isUserLoggedIn()" type="submit" class="btn btn-outline-light">Search</button>
+                </form>
+                -->
+                <div class="navbar-nav navbar-collapse justify-content-end">
+                    <!--
+                    <a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/swagger" class="nav-item nav-link active">Swagger</a>
+                    <a *ngIf="authenticationService.isUserLoggedIn()" routerLink="/profile" class="nav-item nav-link active">Profile</a>
+                    <a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/login" class="nav-item nav-link active">Login</a>
+                    <a *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/register" class="nav-item nav-link active">Register</a>
+                    -->
+                    <i class="material-icons" style="font-size:48px;color:red">add_alert</i><a href="https://stock-portfolio-vuejs.s3.ap-south-1.amazonaws.com/index.html" target="_blank"> <p class="blink">Click Here to Redirect to Stock Trading & Stock Portfolio Application Developed in Vue js</p></a>
+                    <a *ngIf="authenticationService.isUserLoggedIn()" class="nav-item nav-link" data-toggle="modal" data-target="#sign-out">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- modal -->
+    <div class="modal fade" id="sign-out">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Want to leave?</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    Press logout to leave
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Stay Here</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" routerLink="/logout">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of modal -->
+</header>
+
+<!-- https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-navbar.php -->
+
+<style>
+    .blink {
+      animation: blinker 0.6s linear infinite;
+      color: #1c87c9;
+      font-size: 30px;
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+    @keyframes blinker {
+      50% {
+        opacity: 0;
+      }
+    }
+    .blink-one {
+      animation: blinker-one 1s linear infinite;
+    }
+    @keyframes blinker-one {
+      0% {
+        opacity: 0;
+      }
+    }
+    .blink-two {
+      animation: blinker-two 1.4s linear infinite;
+    }
+    @keyframes blinker-two {
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>

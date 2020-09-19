@@ -1,0 +1,133 @@
+<!-- <h2>Hackathon API</h2>
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form>
+            <h1>Sign up</h1>
+            <input type="email" placeholder="Email" name="r_username" value="{{r_username}}" [(ngModel)]="r_username" />
+            <input type="password" placeholder="Password" name="r_password" value="{{r_password}}" [(ngModel)]="r_password" />
+            <input type="password" placeholder="Confirm Password" name="r_cpassword" value="{{r_cpassword}}" [(ngModel)]="r_cpassword" />
+            <button>Sign up</button>
+        </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form>
+            <h1>Sign in</h1>
+            <input type="email" placeholder="Email" name="username" value="{{username}}" [(ngModel)]="username" />
+            <input type="password" placeholder="Password" name="password" value="{{password}}" [(ngModel)]="password" />
+            <a href="#">Forgot your password?</a>
+            <button (click)="handleJWTAuthenticationLogin()">Sign in</button>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!--
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <div class="jumbotron">
+                <h2>Angular Reactive Form validation</h2>
+                <form name="form" [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" formControlName="email" [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid}" />
+                        <div *ngIf="form.get('email').touched && form.get('email').invalid" class="invalid-feedback">
+                            <div *ngIf="form.get('email').errors.required">Email Name is required</div>
+                            <div *ngIf="form.get('email').errors.email">Email must be a valid email Address</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}" />
+                        <div *ngIf="form.get('password').touched && form.get('password').invalid" class="invalid-feedback">
+                            <div *ngIf="form.get('password').errors.required">Password is required</div>
+                            <div *ngIf="form.get('password').errors.minlength">Password must be a letaset 6 charector</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" [disabled]="!form.valid">Sign up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
+<h2>Hackathon API</h2>
+<div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form name="form1" [formGroup]="form1" (ngSubmit)="form1.valid && onSubmitSignUp()">
+            <h1>Sign up</h1>
+            <div class="form-group">
+                <input type="text" class="form-control" formControlName="email1" [ngClass]="{'is-invalid':form1.get('email1').touched && form1.get('email1').invalid}" placeholder="Email" />
+                <div *ngIf="form1.get('email1').touched && form1.get('email1').invalid" class="invalid-feedback">
+                    <div *ngIf="form1.get('email1').errors.required">Email Name is required</div>
+                    <div *ngIf="form1.get('email1').errors.email">Email must be a valid email Address</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password1" class="form-control" formControlName="password1" [ngClass]="{'is-invalid':form1.get('password1').touched && form1.get('password1').invalid}" placeholder="Password" />
+                <div *ngIf="form1.get('password1').touched && form1.get('password1').invalid" class="invalid-feedback">
+                    <div *ngIf="form1.get('password1').errors.required">Password is required</div>
+                    <div *ngIf="form1.get('password1').errors.minlength">Password must be atleast 6 character</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" [disabled]="!form1.valid">Sign up</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="form-container sign-in-container">
+        <!-- <form name="form2" [formGroup]="form2" (ngSubmit)="form2.valid && onSubmitSignIn()"> -->
+        <form name="form2" [formGroup]="form2" (ngSubmit)="form2.valid && handleJWTAuthenticationLogin()">
+            <h1>Sign in</h1>
+            <div class="alert alert-warning" *ngIf="invalidLogin">{{errorMessage}}</div>
+            <div class="form-group">
+                <input type="text" class="form-control" formControlName="email2" [ngClass]="{'is-invalid':form2.get('email2').touched && form2.get('email2').invalid}" placeholder="Email" />
+                <div *ngIf="form2.get('email2').touched && form2.get('email2').invalid" class="invalid-feedback">
+                    <div *ngIf="form2.get('email2').errors.required">Email Name is required</div>
+                    <div *ngIf="form2.get('email2').errors.email">Email must be a valid email Address</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" formControlName="password2" [ngClass]="{'is-invalid':form2.get('password2').touched && form2.get('password2').invalid}" placeholder="Password" />
+                <div *ngIf="form2.get('password2').touched && form2.get('password2').invalid" class="invalid-feedback">
+                    <div *ngIf="form2.get('password2').errors.required">Password is required</div>
+                    <div *ngIf="form2.get('password2').errors.minlength">Password must be atleast 6 character</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" [disabled]="!form2.valid">Sign in</button>
+            </div>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back!</h1>
+                <p>To keep connected with us please login with your personal info</p>
+                <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Hello, Friend!</h1>
+                <p>Enter your personal details and start journey with us</p>
+                <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
