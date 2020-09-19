@@ -1,1 +1,1 @@
-export const API_URL = http://stock-portfolio-api.azurewebsites.net
+export const API_URL = 'http://stock-portfolio-api.azurewebsites.net';
